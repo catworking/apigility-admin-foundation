@@ -58,7 +58,8 @@
           params: params
         }).then((response) => {
           response.json().then((response) => {
-            eval('vm.items = response._embedded.' + vm.resourceName)
+            // eval('vm.items = response._embedded.' + vm.resourceName)
+            vm.items = response._embedded[vm.resourceName]
             this.page_size = response.page_size
             this.total_items = response.total_items
             this.page = response.page < 1 ? 1 : response.page
